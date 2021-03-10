@@ -53,7 +53,7 @@ for filename in os.listdir('./cogs/'):
 
 # Hosting and running the bot:
 
-keep_alive.keep_alive()
+keep_alive()
 
 # Running the client by its token
 client.run(TOKEN)
