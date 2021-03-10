@@ -1,5 +1,5 @@
 from discord.ext import commands
-from core.helperFunctions.helperFunctions import *
+from core.helperFunctions import *
 
 class HelpCommands(commands.Cog):
     def __init__(self, bot):
