@@ -22,7 +22,7 @@ class PrefixCommands(commands.Cog):
             em = createStandardEmbed(ctx, f"The prefix was successfully changed to `{prefix}`", "Prefix")
             await ctx.send(embed = em)
         else:
-            em = createStandardEmbed(ctx, f"The current prefix for this server is `{getPrefix(ctx)}`\nYou can change the prefix like this: `{getPrefix(ctx)}prefix [new_prefix]`", "Current Server Prefix")
+            em = createStandardEmbed(ctx, f"The current prefix for this server is `{getPrefix(client = self.bot, ctx = ctx)}`\nYou can change the prefix like this: `{getPrefix(client = self.bot, ctx = ctx)}prefix [new_prefix]`", "Current Server Prefix")
             await ctx.send(embed = em)
 
 def setup(bot):

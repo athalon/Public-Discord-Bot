@@ -11,7 +11,7 @@ def createStandardEmbed(ctx, description, title):
     embed.set_footer(text=ctx.bot.user.name)
     return embed
 
-def getPrefix(ctx):
+def getPrefix(client, ctx):
     prefix = str(db[str(ctx.guild.id)])
     return prefix
 
