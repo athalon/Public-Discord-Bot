@@ -10,14 +10,8 @@ class CommandEvents(commands.Cog):
         self.bot = bot
     
     '''
-    Command Error, Successful and Invocation Handling
+    Successful and Invocation Handling
     '''
-
-    @commands.Cog.listener()
-    async def on_command_error(self, ctx, error):
-        print(ctx.command.name + " was invoked incorrectly")
-        print(error)
-
     @commands.Cog.listener()
     async def on_command(self, ctx):
         if ctx.command is not None:
