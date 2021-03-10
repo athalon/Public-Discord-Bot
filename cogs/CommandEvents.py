@@ -26,7 +26,8 @@ class CommandEvents(commands.Cog):
     
     @commands.command()
     async def cmdtally(self, ctx):
-        await ctx.send(commands_tally)
+        if ctx.author.id == 615608898279309312:
+            await ctx.send(commands_tally)
 
 
 def setup(bot):

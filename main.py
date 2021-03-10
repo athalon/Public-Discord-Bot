@@ -24,21 +24,24 @@ async def on_ready():
 # Load Cog by Name
 @client.command()
 async def load(ctx, extension):
-    client.load_extension(f'cogs.{extension}')
-    await ctx.send(f"Cog `{extension}` loaded!")
+    if ctx.author.id == 615608898279309312:
+        client.load_extension(f'cogs.{extension}')
+        await ctx.send(f"Cog `{extension}` loaded!")
 
 # Unload Cog by name
 @client.command()
 async def unload(ctx, extension):
-    client.unload_extension(f'cogs.{extension}')
-    await ctx.send(f"Cog `{extension}` unloaded!")
+    if ctx.author.id == 615608898279309312:
+        client.unload_extension(f'cogs.{extension}')
+        await ctx.send(f"Cog `{extension}` unloaded!")
 
 # Reload Cog by name (unloading, then loading)
 @client.command()
 async def reload(ctx, extension):
-    client.unload_extension(f'cogs.{extension}')
-    client.load_extension(f'cogs.{extension}')
-    await ctx.send(f"Cog `{extension}` reloaded!")
+    if ctx.author.id == 615608898279309312:
+        client.unload_extension(f'cogs.{extension}')
+        client.load_extension(f'cogs.{extension}')
+        await ctx.send(f"Cog `{extension}` reloaded!")
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

@@ -10,6 +10,7 @@ import traceback
 import sys
 from discord.ext import commands
 
+# TODO: Create own error handler
 
 class CommandErrorHandler(commands.Cog):
 

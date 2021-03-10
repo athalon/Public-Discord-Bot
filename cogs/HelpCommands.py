@@ -1,6 +1,8 @@
 from discord.ext import commands
 from core.helperFunctions import *
 
+# TODO: Create help commands
+
 class HelpCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
