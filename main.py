@@ -2,7 +2,6 @@
 from discord.ext import commands
 import os
 from core.keep_alive import keep_alive
-from core.helperFunctions.helperFunctions import *
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -12,7 +11,7 @@ prefix = '!'
 
 TOKEN = os.getenv("BOT_TOKEN") # Getting the bot token from the .env file
 
-client = commands.Bot(command_prefix=str(getPrefix()), case_insensitive=True)
+client = commands.Bot(command_prefix=str(prefix), case_insensitive=True)
 client.remove_command('help') # Remove standard help command for custom help command
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
