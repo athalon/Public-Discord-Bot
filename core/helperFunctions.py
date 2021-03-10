@@ -13,6 +13,7 @@ def createStandardEmbed(ctx, description, title):
 
 def getPrefix(ctx):
     prefix = str(db[str(ctx.guild.id)])
+    return prefix
 
 def writeToDb(key, value):
     db[str(key)] = str(value)
