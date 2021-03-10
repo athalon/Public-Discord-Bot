@@ -19,11 +19,14 @@ class CommandEvents(commands.Cog):
                 commands_tally[ctx.command.name] += 1
             else:
                 commands_tally[ctx.command.name] = 1
-            print(commands_tally)
 
     @commands.Cog.listener()
     async def on_command_completion(self, ctx):
         print(ctx.command.name + " was invoked successfully")
+
+		@commands.command()
+		async def cmdtally(self, ctx):
+			await ctx.send(commands_tally)
 
 
 def setup(bot):
