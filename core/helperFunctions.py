@@ -1,5 +1,6 @@
 import discord
 from replit import db
+import os
 
 def createStandardEmbed(ctx, description, title):
     embed = discord.Embed(
@@ -20,3 +21,5 @@ def writeToDb(key, value):
 
 def deleteDbEntry(key):
     del db[str(key)]
+
+uppath = lambda _path, n: os.sep.join(_path.split(os.sep)[:-n])
