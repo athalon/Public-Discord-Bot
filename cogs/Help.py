@@ -10,7 +10,7 @@ class HelpCommands(commands.Cog):
 
     @commands.group(invoke_without_command = True)
     async def help(self, ctx):
-        em = createStandardEmbed(ctx, f"Use {getPrefix(self.bot, ctx)}help <command> for more info on a specific command.")
+        em = createStandardEmbed(ctx, f"Use {getPrefix(self.bot, ctx)}help <command> for more info on a specific command.", "Help")
         em.add_field(name=":game_die: Fun", value="8ball, question, rps", inline=False)
         em.add_field(name=":question: Misc", value="ping, random_number, test, prefix", inline=False)
         em.add_field(name=":hammer: Moderation", value="kick, ban, unban, mute, unmute, purge, softban", inline=False)
