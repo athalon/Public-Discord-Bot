@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from core.helperFunctions import *
 
-# TODO: Add comand aliases
+# TODO: Add comand aliases from the help commands
 # TODO: Make the bot delete the message that invoked the command
 # TODO: Rewrite the moderation system to work with the new discord.py version
 
