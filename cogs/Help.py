@@ -12,7 +12,7 @@ class HelpCommands(commands.Cog):
     async def help(self, ctx):
         em = createStandardEmbed(ctx, f"Use {getPrefix(self.bot, ctx)}help <command> for more info on a specific command.", "Help")
         em.add_field(name=":game_die: Fun", value="8ball, question, rps", inline=False)
-        em.add_field(name=":question: Misc", value="ping, random_number, test, prefix", inline=False)
+        em.add_field(name=":question: Misc", value="ping, random_number, test, prefix, servers", inline=False)
         em.add_field(name=":hammer: Moderation", value="kick, ban, unban, mute, unmute, purge, softban", inline=False)
         await ctx.send(embed = em)
     
@@ -84,6 +84,11 @@ class HelpCommands(commands.Cog):
     @help.command(name="prefix")
     async def prefix_help(self, ctx):
         em = createHelpEmbed(ctx, self.bot, "prefix", "Either changes or views the prefix depending on if you specified a prefix", "[prefix]", "Administrator (when setting the prefix) | None (When viewing the prefix)", "prefix")
+        await ctx.send(embed = em)
+
+    @help.command(name="servers")
+    async def servers_help(self, ctx):
+        em = createHelpEmbed(ctx, self.bot, "servers", "Tells you the number of servers the bot is currently in", "", "None", "servers, servercount, server")
         await ctx.send(embed = em)
 
 def setup(bot):
