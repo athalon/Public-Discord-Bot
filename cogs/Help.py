@@ -7,8 +7,8 @@ class HelpCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
-    async def help(self, ctx):
+    @commands.group(invoke_without_command = True)
+    async def _help(self, ctx):
         await ctx.send(embed = createStandardEmbed(ctx, "Help Command Placeholder", "Help Command"))
 
 def setup(bot):
