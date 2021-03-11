@@ -17,7 +17,7 @@ client.remove_command('help') # Remove standard help command for custom help com
 
 @client.event
 async def on_ready():
-    print("Bot is ready!")
+    print("Bot is ready")
 
 # Cog Loading Commands: 
 
@@ -51,6 +51,8 @@ async def reload(ctx, extension):
 for filename in os.listdir('./cogs/'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}') # Loads the extension by the file name and cuts off the .py at the end
+        print("Cog loaded: " + filename[:-3])
+print("All Systems alive and functional")
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
