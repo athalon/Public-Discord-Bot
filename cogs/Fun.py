@@ -48,11 +48,13 @@ class FunCommands(commands.Cog):
         CHOICES = ("rock", "paper", "scissors")
         if choice not in CHOICES: 
             await ctx.send(embed = createStandardEmbed(ctx, "Please only type either rock, paper or scissors", "Error!"))
+            return
         cpu = random.choice(CHOICES)
         await ctx.send("I chose %s" % cpu)
-        if choice != cpu: pass
-        await ctx.send(embed = createStandardEmbed(ctx, "Play again..", "We tied"))
-        await ctx.send(embed = createStandardEmbed(ctx, "You %s!" % ("Win" if CHOICES[CHOICES.index(choice)-1] == cpu else "Lose"), "%s!" % ("Congrats" if CHOICES[CHOICES.index(choice)-1] == cpu else "Better luck next time")))
+        if choice == cpu:
+            await ctx.send(embed = createStandardEmbed(ctx, "I chose %s" % cpu, "We tied"))
+            return
+        await ctx.send(embed = createStandardEmbed(ctx, "You %s!" % ("Win" if CHOICES[CHOICES.index(choice)-1] == cpu else "Lose") + "\nI chose %s" % cpu, "%s!" % ("Congrats" if CHOICES[CHOICES.index(choice)-1] == cpu else "Better luck next time")))
 
 
 def setup(bot):
