@@ -10,7 +10,7 @@ class CommandEvents(commands.Cog):
         self.bot = bot
     
     '''
-    Successful and Invocation Handling
+    Successful Command and Invocation Handling
     '''
     @commands.Cog.listener()
     async def on_command(self, ctx):
