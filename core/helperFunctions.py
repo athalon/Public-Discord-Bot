@@ -22,4 +22,13 @@ def writeToDb(key, value):
 def deleteDbEntry(key):
     del db[str(key)]
 
+def createHelpEmbed(ctx, client, name, description, params, req_perms, aliases):
+    embed = createStandardEmbed(ctx, description, name + " help")
+    prefix = getPrefix(client, ctx)
+    embed.add_field(name="Syntax", value=prefix+name+" "+params, inline=False)
+    embed.add_field(name="Required Permissions", value=req_perms, inline=False)
+    embed.add_field(name="Aliases", value=aliases, inline=False)
+    
+    return embed
+
 uppath = lambda _path, n: os.sep.join(_path.split(os.sep)[:-n])
