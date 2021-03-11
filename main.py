@@ -18,6 +18,7 @@ client.remove_command('help') # Remove standard help command for custom help com
 @client.event
 async def on_ready():
     print("Bot is ready")
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"Alpha developement phase!"))
 
 # Cog Loading Commands: 
 
