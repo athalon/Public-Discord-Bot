@@ -5,7 +5,7 @@ import os
 
 # TODO: Add fun commands
 
-questions_path = os.path.join(uppath(__file__, 1), "core", "data", "questions.txt")
+questions_path = os.path.join(uppath(__file__, 2), "core", "data", "questions.txt")
 
 class FunCommands(commands.Cog):
     def __init__(self, bot):
