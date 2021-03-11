@@ -50,7 +50,6 @@ class FunCommands(commands.Cog):
             await ctx.send(embed = createStandardEmbed(ctx, "Please only type either rock, paper or scissors", "Error!"))
             return
         cpu = random.choice(CHOICES)
-        await ctx.send("I chose %s" % cpu)
         if choice == cpu:
             await ctx.send(embed = createStandardEmbed(ctx, "I chose %s" % cpu, "We tied"))
             return
