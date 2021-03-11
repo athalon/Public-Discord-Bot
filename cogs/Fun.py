@@ -1,5 +1,6 @@
 from discord.ext import commands
 from core.helperFunctions import *
+
 import random
 import os
 
@@ -41,6 +42,20 @@ class FunCommands(commands.Cog):
         with open(questions_path, encoding='UTF-8') as f:
             content = f.readlines()
         await ctx.send(random.choice(content))
+    
+    @commands.command()
+    async def rps(self, ctx, choice):
+        CHOICES = ("rock", "paper", "scissors")
+        while True:
+            if choice not in CHOICES: 
+                await ctx.send(embed = createStandardEmbed(ctx, "Please only type either rock, paper or scissors", "Error!"))
+                continue
+            cpu = random.choice(CHOICES)
+            await ctx.send("I chose %s" % cpu)
+            if choice != cpu: break
+            await ctx.send(embed = createStandardEmbed(ctx, "Play again..", "We tied"))
+        await ctx.send(embed = createStandardEmbed(ctx, "You %s!" % ("Win" if CHOICES[CHOICES.index(choice)-1] == cpu else "Lose"), "s%!" % ("Congrats" if CHOICES[CHOICES.index(choice)-1] == cpu else "Better luck next time"))
+
 
 def setup(bot):
     bot.add_cog(FunCommands(bot))
