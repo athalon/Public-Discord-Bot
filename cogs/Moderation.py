@@ -44,7 +44,7 @@ async def mute(ctx, user, reason):
         await user.send(embed = createStandardEmbed(ctx, f"You have been muted in {ctx.guild.name} for {reason}", "Muted!"))
 
 
-class Moderation:
+class Moderation(commands.Cog):
     """Commands used to moderate your guild"""
     
     def __init__(self, bot):
