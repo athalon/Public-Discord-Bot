@@ -36,7 +36,7 @@ class FunCommands(commands.Cog):
             'Very doubtful.']
         await ctx.send(embed = createStandardEmbed(ctx, f"The 8ball has spoken: {random.choice(responses)}", f"Your Question: {question}"))
 
-    @commands.command(aliases=["question", "topic", "q"])
+    @commands.command(aliases=["topic", "q"])
     async def question(self, ctx):
         with open(questions_path, encoding='UTF-8') as f:
             content = f.readlines()
