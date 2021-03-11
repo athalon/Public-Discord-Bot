@@ -26,7 +26,7 @@ class HelpCommands(commands.Cog):
         em = createHelpEmbed(ctx, self.bot, "question", "Asks you a random question", "", "None", "question, topic, q")
         await ctx.send(embed = em)
     
-    @help.command(name="rps"):
+    @help.command(name="rps")
     async def rps_help(self, ctx):
         em = createHelpEmbed(ctx, self.bot, "rps", "Play rock-paper-scissors against the bot!", "<choice>", "None", "rps")
         await ctx.send(embed = em)
