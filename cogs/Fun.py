@@ -35,7 +35,7 @@ class FunCommands(commands.Cog):
             'My sources say no.',
             'Outlook not so good.',
             'Very doubtful.']
-        await ctx.send(embed = createStandardEmbed(ctx, f"The 8ball has spoken: {random.choice(responses)}", f"Your Question: {question}"))
+        await ctx.send(.send(embed=createStandardEmbed(ctx, f"The 8ball has spoken: {random.choice(responses)}", f"Your Question: {question}"))
 
     @commands.command(aliases=["topic", "q"])
     async def question(self, ctx):
@@ -47,13 +47,13 @@ class FunCommands(commands.Cog):
     async def rps(self, ctx, choice):
         CHOICES = ("rock", "paper", "scissors")
         if choice not in CHOICES: 
-            await ctx.send(embed = createStandardEmbed(ctx, "Please only type either rock, paper or scissors", "Error!"))
+            await ctx.send(.send(embed=createStandardEmbed(ctx, "Please only type either rock, paper or scissors", "Error!"))
             return
         cpu = random.choice(CHOICES)
         if choice == cpu:
-            await ctx.send(embed = createStandardEmbed(ctx, "I chose %s" % cpu, "We tied"))
+            await ctx.send(.send(embed=createStandardEmbed(ctx, "I chose %s" % cpu, "We tied"))
             return
-        await ctx.send(embed = createStandardEmbed(ctx, "You %s!" % ("Win" if CHOICES[CHOICES.index(choice)-1] == cpu else "Lose") + "\nI chose %s" % cpu, "%s!" % ("Congrats" if CHOICES[CHOICES.index(choice)-1] == cpu else "Better luck next time")))
+        await ctx.send(.send(embed=createStandardEmbed(ctx, "You %s!" % ("Win" if CHOICES[CHOICES.index(choice)-1] == cpu else "Lose") + "\nI chose %s" % cpu, "%s!" % ("Congrats" if CHOICES[CHOICES.index(choice)-1] == cpu else "Better luck next time")))
 
 
 def setup(bot):
