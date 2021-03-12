@@ -1,4 +1,5 @@
 # Import needed libraries:
+import discord
 from discord.ext import commands
 import os
 from core.keep_alive import keep_alive
