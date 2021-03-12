@@ -2,8 +2,6 @@ import discord
 from discord.ext import commands
 from core.helperFunctions import *
 
-# TODO: Add comand aliases from the help commands
-
 
 # Checks if there is a muted role on the server and creates one if there isn't
 async def mute(ctx, user, reason):
