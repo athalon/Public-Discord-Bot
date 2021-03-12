@@ -31,4 +31,12 @@ def createHelpEmbed(ctx, client, name, description, params, req_perms, aliases):
     
     return embed
 
+def getMember(client, arg):
+    if isinstance(arg, int):
+        return client.get_user(arg)
+    elif isinstance(arg, discord.Member):
+        return arg
+    else:
+        raise discord.InvalidArgument
+
 uppath = lambda _path, n: os.sep.join(_path.split(os.sep)[:-n])
