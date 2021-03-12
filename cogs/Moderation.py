@@ -58,7 +58,7 @@ class Moderation(commands.Cog):
 
     @commands.command(aliases=["clear", "clean"])
     async def purge(self, ctx, limit: int):
-        await ctx.purge(limit=limit + 1) # also deletes your own message
+        await ctx.channel.purge(limit=limit + 1) # also deletes your own message
         await ctx.send(createStandardEmbed(ctx, f"Bulk deleted `{limit}` messages", "Purged!"))
     
     @commands.command()
