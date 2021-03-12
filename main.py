@@ -27,35 +27,46 @@ async def on_ready():
 @client.command()
 async def load(ctx, extension):
     if ctx.author.id == 615608898279309312:
-        client.load_extension(f'cogs.{extension}')
-        await ctx.send(f"Cog `{extension}` loaded!")
+        if extension == "all":
+            loadAllCogs()
+        else:
+            client.load_extension(f'cogs.{extension}')
+            await ctx.send(f"Cog `{extension}` loaded!")
 
 # Unload Cog by name
 @client.command()
 async def unload(ctx, extension):
     if ctx.author.id == 615608898279309312:
-        client.unload_extension(f'cogs.{extension}')
-        await ctx.send(f"Cog `{extension}` unloaded!")
+        if extension == "all":
+            loadAllCogs()
+        else:
+            client.unload_extension(f'cogs.{extension}')
+            await ctx.send(f"Cog `{extension}` unloaded!")
 
 # Reload Cog by name (unloading, then loading)
 @client.command()
 async def reload(ctx, extension):
     if ctx.author.id == 615608898279309312:
-        client.unload_extension(f'cogs.{extension}')
-        client.load_extension(f'cogs.{extension}')
-        await ctx.send(f"Cog `{extension}` reloaded!")
+        if extension == "all":
+            loadAllCogs()
+        else:
+            client.unload_extension(f'cogs.{extension}')
+            client.load_extension(f'cogs.{extension}')
+            await ctx.send(f"Cog `{extension}` reloaded!")
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Automatic Cog Loading:
 
 # Loading all cogs on startup
-for filename in os.listdir('./cogs/'):
-    if filename.endswith('.py'):
-        client.load_extension(f'cogs.{filename[:-3]}') # Loads the extension by the file name and cuts off the .py at the end
-        print("Cog loaded: " + filename[:-3])
-print("All Systems alive and functional")
+def loadAllCogs():
+    for filename in os.listdir('./cogs/'):
+        if filename.endswith('.py'):
+            client.load_extension(f'cogs.{filename[:-3]}') # Loads the extension by the file name and cuts off the .py at the end
+            print("Cog loaded: " + filename[:-3])
+    print("All Systems alive and functional")
 
+loadAllCogs()
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Hosting and running the bot:
