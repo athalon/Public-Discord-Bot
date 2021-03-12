@@ -13,12 +13,12 @@ async def mute(ctx, user, reason):
         for channel in ctx.guild.channels: # removes permission to view and send in the channels 
             await channel.set_permissions(muted, send_messages=False)
         await user.add_roles(muted) # adds newly created muted role
-        await ctx.send(.send(embed=createStandardEmbed(ctx, f"{str(user)} has been muted for {reason}", "Muted!"))
-        await user.send(.send(embed=createStandardEmbed(ctx, f"You have been muted in {ctx.guild.name} for {reason}", "Muted!"))
+        await ctx.send(embed=createStandardEmbed(ctx, f"{str(user)} has been muted for {reason}", "Muted!"))
+        await user.send(embed=createStandardEmbed(ctx, f"You have been muted in {ctx.guild.name} for {reason}", "Muted!"))
     else:
         await user.add_roles(role) # adds already existing muted role
-        await ctx.send(.send(embed=createStandardEmbed(ctx, f"{str(user)} has been muted for {reason}", "Muted!"))
-        await user.send(.send(embed=createStandardEmbed(ctx, f"You have been muted in {ctx.guild.name} for {reason}", "Muted!"))
+        await ctx.send(embed=createStandardEmbed(ctx, f"{str(user)} has been muted for {reason}", "Muted!"))
+        await user.send(embed=createStandardEmbed(ctx, f"You have been muted in {ctx.guild.name} for {reason}", "Muted!"))
 
 class Moderation(commands.Cog): 
     def __init__(self, bot):
@@ -30,8 +30,8 @@ class Moderation(commands.Cog):
         user = getMember(self.bot, user)
         await ctx.message.delete()
         await ctx.guild.ban(user, f"By {ctx.author} for {reason}")
-        await ctx.send(.send(embed=createStandardEmbed(ctx, f"{str(user)} has been banned for {reason}", "Banned!"))
-        await user.send(.send(embed=createStandardEmbed(ctx, f"You have been banned from {ctx.guild.name} for {reason}", "Banned!"))
+        await ctx.send(embed=createStandardEmbed(ctx, f"{str(user)} has been banned for {reason}", "Banned!"))
+        await user.send(embed=createStandardEmbed(ctx, f"You have been banned from {ctx.guild.name} for {reason}", "Banned!"))
 
     @commands.command()
     async def softban(self, ctx, user, reason="Reason not specified"): # Ban and instant unban

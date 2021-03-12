@@ -35,7 +35,7 @@ class CommandErrorHandler(commands.Cog):
         else:
             desc = f"An unknown error occured: {error.name}"
 
-        await ctx.send(.send(embed=createStandardEmbed(ctx, desc, "Error!"))
+        await ctx.send(embed=createStandardEmbed(ctx, desc, "Error!"))
 
 
 def setup(bot):
