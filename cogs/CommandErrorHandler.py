@@ -17,7 +17,7 @@ class CommandErrorHandler(commands.Cog):
         elif isinstance(error, discord.InvalidArgument):
             desc = f"The type of argument passed was invalid!"
         elif isinstance(error, commands.CommandNotFound):
-            desc = f"The command named {ctx.comand} does not exist"
+            desc = f"The command named {ctx.command} does not exist"
         elif isinstance(error, commands.DisabledCommand):
             desc = f"The command named {ctx.command} is disabled"
         elif isinstance(error, commands.CommandInvokeError):
