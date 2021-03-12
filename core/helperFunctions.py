@@ -23,7 +23,7 @@ def deleteDbEntry(key):
     del db[str(key)]
 
 def createHelpEmbed(ctx, client, name, description, params, req_perms, aliases):
-    .send(embed=createStandardEmbed(ctx, description, name + " help")
+    embed=createStandardEmbed(ctx, description, name + " help")
     prefix = getPrefix(client, ctx)
     embed.add_field(name="Syntax", value=prefix+name+" "+params, inline=False)
     embed.add_field(name="Required Permissions", value=req_perms, inline=False)
