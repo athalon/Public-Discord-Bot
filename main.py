@@ -38,7 +38,7 @@ async def load(ctx, extension):
 async def unload(ctx, extension):
     if ctx.author.id == 615608898279309312:
         if extension == "all":
-            loadAllCogs()
+            unloadAllCogs()
         else:
             client.unload_extension(f'cogs.{extension}')
             await ctx.send(f"Cog `{extension}` unloaded!")
@@ -48,6 +48,7 @@ async def unload(ctx, extension):
 async def reload(ctx, extension):
     if ctx.author.id == 615608898279309312:
         if extension == "all":
+            unloadAllCogs()
             loadAllCogs()
         else:
             client.unload_extension(f'cogs.{extension}')
@@ -65,6 +66,11 @@ def loadAllCogs():
             client.load_extension(f'cogs.{filename[:-3]}') # Loads the extension by the file name and cuts off the .py at the end
             print("Cog loaded: " + filename[:-3])
     print("All Systems alive and functional")
+
+def unloadAllCogs():
+    for filename in os.listdir('./cogs/'):
+        if filename.endswith('.py'):
+            client.unload_extension(f'cogs.{filename[:-3]}') # Unloads the extension by the file name and cuts off the .py at the end
 
 loadAllCogs()
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
