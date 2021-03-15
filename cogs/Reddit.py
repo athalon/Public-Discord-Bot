@@ -3,7 +3,7 @@ from core.helperFunctions import *
 from random import randint
 from aiohttp import ClientSession
 
-prev_res = None
+prev_seed = None
 
 class RedditCommands(commands.Cog):
     def __init__(self, bot):
@@ -15,10 +15,10 @@ class RedditCommands(commands.Cog):
             async with cs.get('https://www.reddit.com/r/dankmemes/new.json?sort=hot') as r:
                 res = await r.json()
                 img_seed = randint(0, 25)
+								if img_seed == prev_seed: img_seed = randint(0, 25)
                 title = res['data']['children'] [img_seed]['title']
 
                 img_url = res['data']['children'] [img_seed]['data']['url']
-                if img_url == prev_res: img_url = res['data']['children'] [randint(0, 25)]['data']['url']
 
                 em = createStandardEmbed(ctx, "", title)
                 em.set_image(url=img_url)

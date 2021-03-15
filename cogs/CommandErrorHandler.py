@@ -32,8 +32,6 @@ class CommandErrorHandler(commands.Cog):
             desc = f"I am lacking these permission to run the command: {', '.join(error.missing_perms)}"
         elif isinstance(error, commands.ExtensionNotFound):
             desc = f"The cog {error.name} was not found"
-        else:
-            desc = f"An unknown error occured: {error.name}"
 
         await ctx.send(embed=createStandardEmbed(ctx, desc, "Error!"))
 
