@@ -3,6 +3,8 @@ from core.helperFunctions import *
 from random import randint
 from aiohttp import ClientSession
 
+prev_res = None
+
 class RedditCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -13,7 +15,9 @@ class RedditCommands(commands.Cog):
             async with cs.get('https://www.reddit.com/r/dankmemes/new.json?sort=hot') as r:
                 res = await r.json()
                 em = createStandardEmbed(ctx, "", "Random Meme")
-                em.set_image(url=res['data']['children'] [randint(0, 25)]['data']['url'])
+                img_url = res['data']['children'] [randint(0, 25)]['data']['url']
+                if img_url == prev_res: img_url = res['data']['children'] [randint(0, 25)]['data']['url']
+                em.set_image(url=img_url)
                 await ctx.send(embed=em)
 
 def setup(bot):
