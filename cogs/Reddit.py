@@ -15,3 +15,6 @@ class RedditCommands(commands.Cog):
                 em = createStandardEmbed(ctx, "", "Random Meme")
                 em.set_image(url=res['data']['children'] [randint(0, 35)]['data']['url'])
                 await ctx.send(embed=em)
+
+def setup(bot):
+    bot.add_cog(RedditCommands(bot))
