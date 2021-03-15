@@ -133,3 +133,6 @@ dmypy.json
 
 # Testing folder
 .testing/
+
+# Repl.it configuration
+.replit
