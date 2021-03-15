@@ -15,8 +15,8 @@ class RedditCommands(commands.Cog):
             async with cs.get('https://www.reddit.com/r/dankmemes/new.json?sort=hot') as r:
                 res = await r.json()
                 img_seed = randint(0, 25)
-								if img_seed == prev_seed: img_seed = randint(0, 25)
-                title = res['data']['children'] [img_seed]['title']
+                if img_seed == prev_seed: img_seed = randint(0, 25)
+                title = res['data']['children'] [img_seed]["title"]
 
                 img_url = res['data']['children'] [img_seed]['data']['url']
 
