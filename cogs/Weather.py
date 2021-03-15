@@ -16,12 +16,13 @@ class WeatherCommands(commands.Cog):
         try:
             weather = weather_manager.weather_at_place(location).weather
             temp_fahrenheit = weather.temperature('fahrenheit')
-            temp_celcius = weather.temperature('celcius')
+            temp_min_celcius = (int(temp_fahrenheit['temp_min'])-32)*5/9
+            temp_max_celcius = (int(temp_fahrenheit['temp_max'])-32)*5/9
             weather_status = weather.detailed_status
             wind = weather.wind()
             msg = f"""It is currently {weather_status} in {location}
-            The minumum temperature is {temp_fahrenheit['temp_min']}°F or {temp_celcius['temp_min']}°C
-            The maximum temperature is {temp_fahrenheit['temp_max']}°F or {temp_celcius['temp_max']}°C
+            The minumum temperature is {temp_fahrenheit['temp_min']}°F or {temp_min_celcius}°C
+            The maximum temperature is {temp_fahrenheit['temp_max']}°F or {temp_max_celcius}°C
             The wind speed is {wind['speed']}m/s"""
             await ctx.send(embed=createStandardEmbed(ctx, msg, "Showing weather data for " + location))
         except pywom_exceptions.NotFoundError:
