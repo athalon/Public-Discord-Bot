@@ -16,7 +16,7 @@ class RedditCommands(commands.Cog):
                 res = await r.json()
                 img_seed = randint(0, 25)
                 if img_seed == prev_seed: img_seed = randint(0, 25)
-                title = res['data']['children'] [img_seed]["title"]
+                title = res['data']['children'] [img_seed]['data']["title"]
 
                 img_url = res['data']['children'] [img_seed]['data']['url']
 
