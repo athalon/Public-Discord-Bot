@@ -20,7 +20,7 @@ class WeatherCommands(commands.Cog):
             temp_max_celcius = int((int(temp_fahrenheit['temp_max'])-32)*5/9)
             weather_status = weather.detailed_status
             wind = weather.wind()
-            msg = f""":sparkles: It is currently {weather_status} in {location}
+            msg = f""":sparkles: The weather status in {location} is {weather_status}
             :snowflake: The minimum temperature is {int(temp_fahrenheit['temp_min'])}°F or {temp_min_celcius}°C
             :sunny: The maximum temperature is {int(temp_fahrenheit['temp_max'])}°F or {temp_max_celcius}°C
             :dash: The wind speed is {wind['speed']}m/s"""
