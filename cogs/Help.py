@@ -10,7 +10,7 @@ class HelpCommands(commands.Cog):
     async def help(self, ctx):
         em = createStandardEmbed(ctx, f"Use {getPrefix(self.bot, ctx)}help <command> for more info on a specific command.", "Help")
         em.add_field(name=":game_die: Fun", value="8ball, question, rps", inline=False)
-        em.add_field(name=":question: Misc", value="ping, random_number, test, prefix, servers", inline=False)
+        em.add_field(name=":question: Misc", value="ping, random_number, test, prefix, servers, weather", inline=False)
         em.add_field(name=":hammer: Moderation", value="kick, ban, unban, mute, unmute, purge, softban", inline=False)
         await ctx.send(embed = em)
     
@@ -87,6 +87,11 @@ class HelpCommands(commands.Cog):
     @help.command(name="servers")
     async def servers_help(self, ctx):
         em = createHelpEmbed(ctx, self.bot, "servers", "Tells you the number of servers the bot is currently in", "", "None", "servers, servercount, server")
+        await ctx.send(embed = em)
+    
+    @help.command(name="weather")
+    async def weather_help(self, ctx):
+        em = createHelpEmbed(ctx, self.bot, "weather", "Gets the weather data for a specific location", "<location>", "None", "weather")
         await ctx.send(embed = em)
 
 def setup(bot):
