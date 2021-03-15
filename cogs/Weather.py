@@ -20,10 +20,10 @@ class WeatherCommands(commands.Cog):
             temp_max_celcius = int((int(temp_fahrenheit['temp_max'])-32)*5/9)
             weather_status = weather.detailed_status
             wind = weather.wind()
-            msg = f"""It is currently {weather_status} in {location}
-            The minumum temperature is {int(temp_fahrenheit['temp_min'])}°F or {temp_min_celcius}°C
-            The maximum temperature is {int(temp_fahrenheit['temp_max'])}°F or {temp_max_celcius}°C
-            The wind speed is {wind['speed']}m/s"""
+            msg = f""":sparkles: It is currently {weather_status} in {location}
+            :snowflake: The minimum temperature is {int(temp_fahrenheit['temp_min'])}°F or {temp_min_celcius}°C
+            :sunny: The maximum temperature is {int(temp_fahrenheit['temp_max'])}°F or {temp_max_celcius}°C
+            :dash: The wind speed is {wind['speed']}m/s"""
             await ctx.send(embed=createStandardEmbed(ctx, msg, "Showing weather data for " + location))
         except pywom_exceptions.NotFoundError:
             await ctx.send(embed=createStandardEmbed(ctx, f"No weather data for the place {location} could be found. Please check your spelling", "Error!"))
