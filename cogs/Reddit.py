@@ -13,7 +13,7 @@ class RedditCommands(commands.Cog):
             async with cs.get('https://www.reddit.com/r/dankmemes/new.json?sort=hot') as r:
                 res = await r.json()
                 em = createStandardEmbed(ctx, "", "Random Meme")
-                em.set_image(url=res['data']['children'] [randint(0, 35)]['data']['url'])
+                em.set_image(url=res['data']['children'] [randint(0, 25)]['data']['url'])
                 await ctx.send(embed=em)
 
 def setup(bot):
