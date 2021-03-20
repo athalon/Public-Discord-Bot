@@ -9,7 +9,7 @@ output_path = os.path.join(output_path, 'core', 'data')
 
 ydl_opts = {
     'format': 'bestaudio/best',
-    'outtmpl': output_path,
+    'outtmpl': str(output_path),
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
         'preferredcodec': 'wav',
