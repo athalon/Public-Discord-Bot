@@ -1,6 +1,6 @@
+from __future__ import unicode_literals
 from discord.ext import commands
 from core.helperFunctions import *
-from __future__ import unicode_literals
 import youtube_dl
 
 ydl_opts = {
