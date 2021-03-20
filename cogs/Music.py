@@ -4,6 +4,8 @@ from core.helperFunctions import *
 import youtube_dl
 import os
 
+#TODO: Fix the music downloading or just give up and try to do it by the shitty youtube tutorials
+
 output_path = os.path.dirname(__file__)
 output_path = os.path.join(output_path, 'core', 'data')
 
