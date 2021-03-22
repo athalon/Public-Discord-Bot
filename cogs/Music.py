@@ -7,7 +7,7 @@ import os
 #TODO: Fix the music downloading or just give up and try to do it by the shitty youtube tutorials
 
 output_path = os.path.dirname(__file__)
-uppath(output_path, 2)
+output_path = uppath(output_path, 2)
 output_path = os.path.join(output_path, 'core', 'data')
 
 ydl_opts = {
