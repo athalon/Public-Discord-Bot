@@ -23,7 +23,6 @@ ydl_opts = {
         '-ar', '16000'
     ],
     'prefer_ffmpeg': True,
-    'keepvideo': True
 }
 
 class MusicCommands(commands.Cog):
@@ -32,6 +31,7 @@ class MusicCommands(commands.Cog):
     
     @commands.command()
     async def music_test(self, ctx, link):
+        await ctx.send("Downloading audio...")
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             ydl.download([link])
         await ctx.send("Audio downloaded!")
